@@ -165,9 +165,9 @@ class LapisLazuli:
                         self.log.info('Successfully imported data from %s.%s()',
                                       plugin.__class__.__name__, func_name)
                         returns.append(import_data)
-                # else:
-                #     self.log.debug('%s does not have a display_name() function',
-                #                    plugin.__class__.__name__, func_name)
+                        # else:
+                        #     self.log.debug('%s does not have a display_name() function',
+                        #                    plugin.__class__.__name__, func_name)
             except Exception:
                 self.log.error('Error occurred while calling %s:\n%s',
                                display_name, traceback.format_exc())
@@ -275,8 +275,7 @@ class LapisLazuli:
                for comment in submission.comments if comment.author):
             self.log.debug('Have already commented here--moving on.')
             return
-		
-		
+
         import_results = self.call_plugin_function('import_submission', submission=submission)
         if not any(import_results):
             self.log.debug('No processing done on "%s"', submission.url)
@@ -338,7 +337,7 @@ class LapisLazuli:
             # submission_id = submission.id
             # comment_id = comment.id
 
-    def scan_submissions(self, delay: bool=False) -> None:
+    def scan_submissions(self, delay: bool = False) -> None:
         """Scan the most recent submissions continually.
 
         :param delay: Whether to delay in-between each submission scanned.

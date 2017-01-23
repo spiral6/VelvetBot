@@ -314,7 +314,7 @@ class LapisLazuli:
                 **self.options)
         else:
             text = self.options.get('post_template',
-                                    '{links}\n\n---\n^(Lapis Mirror {version}) ^[Creator](http://reddit.com/user/kupiakos), ^[Source](https://github.com/kupiakos/LapisMirror) ^and ^[Maintainer](http://reddit.com/user/spiral6) ').format(
+                                    '{links}\n\n---\n^(Lapis Mirror {version})\n\n^[Creator](http://reddit.com/user/kupiakos) ^| ^[Source](https://github.com/kupiakos/LapisMirror) ^| ^[Maintainer](http://reddit.com/user/spiral6) ^| ^[FAQ](https://www.reddit.com/r/RWBY/comments/4hsr39/heyo_folks_im_launching_an_image_mirroring_bot/)\n\n[^(If I made a mistake, let me know!)](/message/compose/?to=spiral6&amp;subject=VelvetBot) ').format(
                 links=links_display, **self.options)
         try:
             comment = submission.add_comment(text)

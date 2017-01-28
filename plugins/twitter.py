@@ -89,7 +89,7 @@ class TwitterPlugin:
             body = status.text
 
             image_urls = []
-            for medium in status.entities['media']:
+            for medium in status.extended_entities['media']:
                 if medium['type'] != 'photo':
                     continue
                 url_base = medium['media_url']

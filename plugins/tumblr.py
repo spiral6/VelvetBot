@@ -154,6 +154,13 @@ class TumblrPlugin:
                     return None
                 bs = bs4.BeautifulSoup(html)
                 data['import_urls'] = [img['src'] for img in bs.select('img')]
+                
+		inline_regex = re.compile(r'http[s]?\:\/\/([0-9]+)\.media\.tumblr\.com\/(.*)\/tumblr\_inline\_(.*)\_([0-9]+)\.(.*)', re.IGNORECASE)
+                for index,img in enumerate(data['import_urls']): 
+		    match = inline_regex.match(img)
+                    img = "https://68.media.tumblr.com/" + match.group(2) + "/tumblr_inline_" + match.group(3) + "_raw." + match.group(5)
+                    data['import_urls'][index] = img
+	
                 if not data['import_urls']:
                     self.log.info('Could not find any URLs to import!')
                     return None
